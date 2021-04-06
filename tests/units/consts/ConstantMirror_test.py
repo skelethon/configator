@@ -16,6 +16,7 @@ class ConstantMirror__copy__test(unittest.TestCase):
             MAX = 100
         #
         class Constant2:
+            MIN = 150
             MAX = 200
         #
         ConstantMirror.copy(Constant1).copy(Constant2)
@@ -23,6 +24,7 @@ class ConstantMirror__copy__test(unittest.TestCase):
         MyStore = ConstantMirror.look()
         #
         self.assertEqual(MyStore.LOGGING_MODULE_NAMES, Constant1.LOGGING_MODULE_NAMES)
+        self.assertEqual(MyStore.MIN, Constant2.MIN)
         self.assertEqual(MyStore.MAX, Constant2.MAX)
     #
     def test_invalid_input(self):
